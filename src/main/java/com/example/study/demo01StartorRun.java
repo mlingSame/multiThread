@@ -13,7 +13,7 @@ public class demo01StartorRun extends Thread{
     /**
      *
      *
-     * @description: start是先读书再听课 之后多条交替执行
+     * @description: start是先读书再听课 之后多条交替执行,线程不一定执行，cpu安排调度
      *                run是先听课再读书 run执行完了，再执行循环qq1
      *
      * @return:
@@ -21,7 +21,7 @@ public class demo01StartorRun extends Thread{
      * @time: 2022/6/21 19:28
      */
     public static void main(String[] args) throws InterruptedException {
-
+//创建一个线程对象
         demo01StartorRun threadss = new demo01StartorRun();
         threadss.run();
 //          threadss.start();
