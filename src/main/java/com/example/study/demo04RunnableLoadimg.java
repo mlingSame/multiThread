@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class demo04Runnable extends Thread {
+public class demo04RunnableLoadimg implements Runnable {
     private  String url;
     private  String name;
 
-    public demo04Runnable(String url, String name) {
+    public demo04RunnableLoadimg(String url, String name) {
         this.url = url;
         this.name = name;
     }
@@ -40,11 +40,11 @@ public class demo04Runnable extends Thread {
          }
 }
     public static void main(String[] args) {
-        demo04Runnable t1 = new demo04Runnable("https://uploadfile.huiyi8.com/2014/0731/20140731030854722.jpg", "1.jpg");
-        demo04Runnable t2 = new demo04Runnable("https://uploadfile.huiyi8.com/2014/0731/20140731030854722.jpg", "2.jpg");
-        demo04Runnable t3 = new demo04Runnable("https://uploadfile.huiyi8.com/2014/0731/20140731030854722.jpg", "3.jpg");
-        new Thread(t1).start();
-        new Thread(t2).start();
-        new Thread(t3).start();
+        demo04RunnableLoadimg demo04 = new demo04RunnableLoadimg("https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg", "1.jpg");
+        demo04RunnableLoadimg demo041= new demo04RunnableLoadimg("https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg", "2.jpg");
+        demo04RunnableLoadimg demo042 = new demo04RunnableLoadimg("https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg", "3.jpg");
+        new Thread(demo04).start();
+        new Thread(demo041).start();
+        new Thread(demo042).start();
     }
 }

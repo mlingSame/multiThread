@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class demo02Thread extends Thread {
+public class demo02ThreadLodimg extends Thread {
     private  String url;
     private  String name;
 
-    public demo02Thread(String url, String name) {
+    public demo02ThreadLodimg(String url, String name) {
         this.url = url;
         this.name = name;
     }
@@ -40,9 +40,9 @@ public class demo02Thread extends Thread {
          }
 }
     public static void main(String[] args) {
-        demo02Thread t1 = new demo02Thread("https://uploadfile.huiyi8.com/2014/0731/20140731030854722.jpg", "1.jpg");
-        demo02Thread t2 = new demo02Thread("https://uploadfile.huiyi8.com/2014/0731/20140731030854722.jpg", "2.jpg");
-        demo02Thread t3 = new demo02Thread("https://uploadfile.huiyi8.com/2014/0731/20140731030854722.jpg", "3.jpg");
+        demo02ThreadLodimg t1 = new demo02ThreadLodimg("https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg", "1.jpg");
+        demo02ThreadLodimg t2 = new demo02ThreadLodimg("https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg","2.jpg");
+        demo02ThreadLodimg t3 = new demo02ThreadLodimg("https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg", "3.jpg");
         t1.start();
         t2.start();
         t3.start();
