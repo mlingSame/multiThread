@@ -37,19 +37,24 @@ class blank extends Thread{
     //取钱
 
     @Override
-    public void run() {
-        if (account.money-getMoney<0){
-            System.out.println(Thread.currentThread().getName()+"钱不够");
-        }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        account.money=account.money-getMoney;//账户的钱
-        nowMoney=nowMoney+getMoney;//手里的钱
-        System.out.println(account.name+"余额位"+account.money);
+    public   void run() {
+        //锁的对象是增删改dev
+        synchronized (account){
+            if (account.money-getMoney<0){
+                System.out.println(Thread.currentThread().getName()+"钱不够");
+                return;
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(account.name+"余额位"+account.money);
+            account.money=account.money-getMoney;//账户的钱
+            nowMoney=nowMoney+getMoney;//手里的钱
+            System.out.println(account.name+"余额位"+account.money);
 //        Thread.currentThread().getName()=this.getName();
-        System.out.println(this.getName()+"手里的钱"+nowMoney);
+            System.out.println(this.getName()+"手里的钱"+nowMoney);
+        }
     }
 }

@@ -19,12 +19,14 @@ public class demo01ByTicket implements Runnable{
             }
         }
     }
-    private void buy() throws InterruptedException {
+    //synchronized 同步方法 锁的是this
+    private synchronized void buy() throws InterruptedException {
         if (tickNum<=0){
+            flag=false;
             return;
         }
         //模拟延迟
-        Thread.sleep(1000);
+        Thread.sleep(100);
         System.out.println(Thread.currentThread().getName()+"拿到"
         +tickNum--);
     }

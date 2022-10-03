@@ -13,7 +13,7 @@ public class demo03unsafeList {
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < 10000; i++) {
            new Thread(()->{
-               arrayList.add(Thread.currentThread().getName());
+             synchronized (arrayList){  arrayList.add(Thread.currentThread().getName());}
            }).start();
         }
         Thread.sleep(1000);
